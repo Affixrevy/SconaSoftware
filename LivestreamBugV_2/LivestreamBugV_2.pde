@@ -16,10 +16,10 @@ String finalTenths = "";
 String finalSeconds = "";
 String finalMinutes = "";
 
-float yLeftNew = -60;
-float yLeftOld = 78;
-float yRightNew = -60;
-float yRightOld = 78;
+float yLeftNew = 934;
+float yLeftOld = 1034;
+float yRightNew = 934;
+float yRightOld = 1034;
 float scoreEasing = 0.2;
 
 int leftScore = 0;
@@ -42,22 +42,31 @@ void setup() {
   bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter1.png");
   bugAway = loadImage("Livestream_Bug_V2_DATA/Away/Away_Test.png");
   bugHome = loadImage("Livestream_Bug_V2_DATA/Home/Home_Test.png");
-  
 }
 
 void draw() {
+  background(0, 177, 64);
   image(bugCenter, 0, 0);
   image(bugAway, 0, 0);
   image(bugHome, 0, 0);
 
   leftTeam();
+  rightTeam();
 }
 
 void keyPressed() {
   if (key == ' ') {
     bugCenter = loadImage("Artboard 1.png");
   } else if (key == 'l') {
-    leftScoreNew ++; 
+    if (leftScoreNew == leftScore) {
+      leftScoreNew = leftScore + 1;
+      newTransitionL = true;
+    }
+  } else if (key == 'k') {
+    if (rightScoreNew == rightScore) {
+      rightScoreNew = rightScore + 1;
+      newTransitionR = true;
+    }
   }
 }
 
