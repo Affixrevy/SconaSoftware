@@ -1,0 +1,18 @@
+true
+false
+true
+false
+0.0
+0.0
+f i n a l   |   u p  n e x t :  p r e s e n t a t i o n  c e r e m o n y
+t i m e o u t  p a u l  k a n e
+Paul kane
+edm. christian
+80
+70
+4
+1
+0
+ff0d47a1
+fffdd835
+ff00ff00
