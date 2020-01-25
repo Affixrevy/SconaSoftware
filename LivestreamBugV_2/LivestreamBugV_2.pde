@@ -6,10 +6,10 @@ XML scoreSheet;
 PFont din;
 PFont sohoscore;
 
-boolean newTransitionR = false;
-boolean newTransitionL = false;
-boolean leftBonus = false;
-boolean rightBonus = false;
+boolean newTransitionHome = false;
+boolean newTransitionAway = false;
+boolean bonusAway = false;
+boolean bonusHome = false;
 boolean tenthsMode;
 
 String finalTenths = "";
@@ -22,14 +22,14 @@ float yRightNew = 934;
 float yRightOld = 1034;
 float scoreEasing = 0.2;
 
-int leftScore = 0;
-int rightScore = 0;
-int leftScoreNew = 0;
-int rightScoreNew = 0;
-int leftTimouts = 0;
-int rightTimeouts = 0;
-int leftFoul = 0;
-int rightFoul = 0;
+int scoreAway = 0;
+int scoreHome = 0;
+int newScoreAway = 0;
+int newScoreHome = 0;
+int timeoutsLeftAway = 0;
+int timeoutsLeftHome = 0;
+int foulsAway = 0;
+int foulsHome = 0;
 int quarter = 1;
 int shotClockSeconds = 24;
 
@@ -53,8 +53,8 @@ void draw() {
   image(bugAway, 0, 0);
   image(bugHome, 0, 0);
 
-  leftTeam();
-  rightTeam();
+  awayTeam();
+  homeTeam();
 }
 
 void keyPressed() {
@@ -66,14 +66,14 @@ void keyPressed() {
     }
     bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
   } else if (key == 'l') {
-    if (leftScoreNew == leftScore) {
-      leftScoreNew = leftScore + 1;
-      newTransitionL = true;
+    if (newScoreAway == scoreAway) {
+      newScoreAway = scoreAway + 1;
+      newTransitionAway = true;
     }
   } else if (key == 'k') {
-    if (rightScoreNew == rightScore) {
-      rightScoreNew = rightScore + 1;
-      newTransitionR = true;
+    if (newScoreHome == scoreHome) {
+      newScoreHome = scoreHome + 1;
+      newTransitionHome = true;
     }
   }
 }

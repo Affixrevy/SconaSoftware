@@ -1,45 +1,45 @@
-void rightTeam() {
+void homeTeam() {
   
   textAlign(CENTER);
   textFont(din);
   textSize(100);
   
 
-  if (rightScore < rightScoreNew) {
-    if (newTransitionR) {
-      newTransitionR = false;
+  if (scoreHome < newScoreHome) {
+    if (newTransitionHome) {
+      newTransitionHome = false;
       yRightNew = 934;
     }
-    text(rightScoreNew, 340+(770), yRightNew);
-    text(rightScore, 340+(770), yRightOld);
+    text(newScoreHome, 340+(770), yRightNew);
+    text(scoreHome, 340+(770), yRightOld);
     float targetY = 984;
     float dyL = targetY - yRightNew;
     yRightNew += dyL * scoreEasing;
     yRightOld += dyL * scoreEasing;
     if (dyL < 0.1 && dyL > -0.1) {
-      rightScore = rightScoreNew;
+      scoreHome = newScoreHome;
       yRightNew = 934;
       yRightOld = 1034;
       //bugServer.write("set\n" + "score\n" + "right\n" + rightScore + "\n");
     }
-  } else if (rightScore > rightScoreNew) {
-    if (newTransitionL) {
-      newTransitionL = false;
+  } else if (scoreHome > newScoreHome) {
+    if (newTransitionAway) {
+      newTransitionAway = false;
       yRightNew = 216;
     }
-    text(rightScoreNew, 340+(770), yRightNew);
-    text(rightScore, 340+(770), yRightOld);
+    text(newScoreHome, 340+(770), yRightNew);
+    text(scoreHome, 340+(770), yRightOld);
     float targetY = 984;
     float dyL = targetY - yRightNew;
     yRightNew += dyL * scoreEasing;
     yRightOld += dyL * scoreEasing;
     if (dyL < 0.1 && dyL > -0.1) {
-      rightScore = rightScoreNew;
+      scoreHome = newScoreHome;
       yRightNew = 934;
       yRightOld = 1034;
       //bugServer.write("set\n" + "score\n" + "right\n" + rightScore + "\n");
     }
   } else {
-    text(rightScore, 340+(770), 984);
+    text(scoreHome, 340+(770), 984);
   }
 }

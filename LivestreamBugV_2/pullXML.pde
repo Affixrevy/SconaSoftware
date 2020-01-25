@@ -11,15 +11,15 @@ void pullXML() {
   }
 
   //Get Away Score
-  int leftScoreTemp = Integer.parseInt(scoreSheet.getChild("GUEST_SCORE").getContent());
-  if (leftScoreTemp != leftScore) {
-    leftScoreNew = leftScoreTemp;
+  String leftScoreStr = scoreSheet.getChild("GUEST_SCORE").getContent();
+  if (leftScoreStr != str(scoreAway) && leftScoreStr != "") {
+    newScoreAway = Integer.parseInt(leftScoreStr);
   }
 
   //Get Home Score
-  int rightScoreTemp = Integer.parseInt(scoreSheet.getChild("HOME_SCORE").getContent());
-  if (rightScoreTemp != rightScore) {
-    rightScoreNew = rightScoreTemp;
+  String rightScoreStr = scoreSheet.getChild("HOME_SCORE").getContent();
+  if (rightScoreStr != str(scoreHome) && rightScoreStr != "") {
+    newScoreHome = Integer.parseInt(leftScoreStr);
   }
 
   int foulLTemp = Integer.parseInt(scoreSheet.getChild("HOME_FOULS").getContent());
@@ -36,13 +36,13 @@ void pullXML() {
   //Get Home Timeouts
   String timeoutLeftHome = scoreSheet.getChild("HOME_TIMEOUTS_LEFT").getContent();
   if (timeoutLeftHome != "") {
-    rightTimeouts = Integer.parseInt(timeoutLeftHome);
+    timeoutsLeftHome = Integer.parseInt(timeoutLeftHome);
   }
 
   //Get Away Timeouts
   String timeoutLeftAway = scoreSheet.getChild("GUEST_TIMEOUTS_LEFT").getContent();
   if (timeoutLeftAway != "") {
-    leftTimouts = Integer.parseInt(timeoutLeftAway);
+    timeoutsLeftAway = Integer.parseInt(timeoutLeftAway);
   }
 
   //Get Shot Clock

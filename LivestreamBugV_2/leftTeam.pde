@@ -1,4 +1,4 @@
-void leftTeam() {
+void awayTeam() {
   
   textAlign(CENTER);
   textFont(din);
@@ -6,41 +6,41 @@ void leftTeam() {
   
   int leftPos = 470;
 
-  if (leftScore < leftScoreNew) {
-    if (newTransitionL) {
-      newTransitionL = false;
+  if (scoreAway < newScoreAway) {
+    if (newTransitionAway) {
+      newTransitionAway = false;
       yLeftNew = 934;
     }
-    text(leftScoreNew, 340+(leftPos), yLeftNew);
-    text(leftScore, 340+(leftPos), yLeftOld);
+    text(newScoreAway, 340+(leftPos), yLeftNew);
+    text(scoreAway, 340+(leftPos), yLeftOld);
     float targetY = 984;
     float dyR = targetY - yLeftNew;
     yLeftNew += dyR * scoreEasing;
     yLeftOld += dyR * scoreEasing;
     if (dyR < 0.1 && dyR > -0.1) {
-      leftScore = leftScoreNew;
+      scoreAway = newScoreAway;
       yLeftNew = 934;
       yLeftOld = 1034;
       //bugServer.write("set\n" + "score\n" + "left\n" + leftScore + "\n");
     }
-  } else if (leftScore > leftScoreNew) {
-    if (newTransitionL) {
-      newTransitionL = false;
+  } else if (scoreAway > newScoreAway) {
+    if (newTransitionAway) {
+      newTransitionAway = false;
       yLeftNew = 216;
     }
-    text(leftScoreNew, 340+(leftPos), yLeftNew);
-    text(leftScore, 340+(leftPos), yLeftOld);
+    text(newScoreAway, 340+(leftPos), yLeftNew);
+    text(scoreAway, 340+(leftPos), yLeftOld);
     float targetY = 984;
     float dyL = targetY - yLeftNew;
     yLeftNew += dyL * scoreEasing;
     yLeftOld += dyL * scoreEasing;
     if (dyL < 0.1 && dyL > -0.1) {
-      leftScore = leftScoreNew;
+      scoreAway = newScoreAway;
       yLeftNew = 934;
       yLeftOld = 1034;
       //bugServer.write("set\n" + "score\n" + "left\n" + leftScore + "\n");
     }
   } else {
-    text(leftScore, 340+(leftPos), 984);
+    text(scoreAway, 340+(leftPos), 984);
   }
 }
