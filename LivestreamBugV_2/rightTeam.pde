@@ -6,9 +6,9 @@ void rightTeam() {
   
 
   if (rightScore < rightScoreNew) {
-    if (newTransitionL) {
-      newTransitionL = false;
-      yRightNew = -60;
+    if (newTransitionR) {
+      newTransitionR = false;
+      yRightNew = 934;
     }
     text(rightScoreNew, 340+(770), yRightNew);
     text(rightScore, 340+(770), yRightOld);
