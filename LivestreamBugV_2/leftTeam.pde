@@ -3,6 +3,7 @@ void awayTeam() {
   textAlign(CENTER);
   textFont(din);
   textSize(100);
+  fill(255);
   
   int leftPos = 470;
 

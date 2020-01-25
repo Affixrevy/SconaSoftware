@@ -3,7 +3,7 @@ void homeTeam() {
   textAlign(CENTER);
   textFont(din);
   textSize(100);
-  
+  fill(255);
 
   if (scoreHome < newScoreHome) {
     if (newTransitionHome) {

@@ -41,13 +41,16 @@ void setup() {
 
 
   bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
+  pushMatrix();
   bugAway = loadImage("Livestream_Bug_V2_DATA/Away/Away_Test.png");
   bugHome = loadImage("Livestream_Bug_V2_DATA/Home/Home_Test.png");
+  popMatrix();
+  //mask();
 }
 
 void draw() {
   pullXML();
-  
+
   background(0, 177, 64);
   image(bugCenter, 0, 0);
   image(bugAway, 0, 0);
@@ -60,10 +63,10 @@ void draw() {
 
 void keyPressed() {
   if (key == ' ') {
-    if(quarter < 4) {
+    if (quarter < 4) {
       quarter++;
     } else {
-      quarter = 1; 
+      quarter = 1;
     }
     bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
   } else if (key == 'l') {
@@ -77,6 +80,8 @@ void keyPressed() {
       newTransitionHome = true;
     }
   }
+
+  
 }
 
 void mousePressed() {

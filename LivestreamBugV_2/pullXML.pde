@@ -26,7 +26,7 @@ void pullXML() {
   //Get Home Score - Check if XML value is null, if not parse the score to int so scoreboard can be set to the value
   String rightScoreStr = scoreSheet.getChild("HOME_SCORE").getContent();
   if (rightScoreStr != str(scoreHome) && rightScoreStr != "") {
-    newScoreHome = Integer.parseInt(leftScoreStr);
+    newScoreHome = Integer.parseInt(rightScoreStr);
   }
 
   //Get Home Fouls - Check if XML value is null, if not parse the score to int and call a method to drop down fouls tab
@@ -82,7 +82,7 @@ void setTime(String currentTime) {
     finalTenths = currentTime.substring(currentTime.indexOf(".")+1);
   } else {
     tenthsMode = false;
-    finalMinutes = currentTime.substring(0, currentTime.indexOf(":"));
+    finalMinutes = "0"+currentTime.substring(0, currentTime.indexOf(":"));
     finalSeconds = currentTime.substring(currentTime.indexOf(":")+1);
   }
 }
