@@ -30,7 +30,7 @@ int leftTimouts = 0;
 int rightTimeouts = 0;
 int leftFoul = 0;
 int rightFoul = 0;
-int quarter = 0;
+int quarter = 1;
 
 void setup() {
   size(1920, 1080);
@@ -39,7 +39,7 @@ void setup() {
   sohoscore = createFont("soho/Soho Std Bold Condensed.otf", 100);
 
 
-  bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter1.png");
+  bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
   bugAway = loadImage("Livestream_Bug_V2_DATA/Away/Away_Test.png");
   bugHome = loadImage("Livestream_Bug_V2_DATA/Home/Home_Test.png");
 }
@@ -56,7 +56,12 @@ void draw() {
 
 void keyPressed() {
   if (key == ' ') {
-    bugCenter = loadImage("Artboard 1.png");
+    if(quarter < 4) {
+      quarter++;
+    } else {
+      quarter = 1; 
+    }
+    bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
   } else if (key == 'l') {
     if (leftScoreNew == leftScore) {
       leftScoreNew = leftScore + 1;
