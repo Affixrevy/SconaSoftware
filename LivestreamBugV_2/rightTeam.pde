@@ -3,6 +3,7 @@ void rightTeam() {
   textAlign(CENTER);
   textFont(din);
   textSize(100);
+  
 
   if (rightScore < rightScoreNew) {
     if (newTransitionL) {
