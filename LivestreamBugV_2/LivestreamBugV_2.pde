@@ -31,6 +31,7 @@ int rightTimeouts = 0;
 int leftFoul = 0;
 int rightFoul = 0;
 int quarter = 1;
+int shotClockSeconds = 24;
 
 void setup() {
   size(1920, 1080);
@@ -45,6 +46,8 @@ void setup() {
 }
 
 void draw() {
+  pullXML();
+  
   background(0, 177, 64);
   image(bugCenter, 0, 0);
   image(bugAway, 0, 0);
