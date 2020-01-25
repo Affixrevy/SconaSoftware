@@ -55,6 +55,7 @@ void draw() {
 
   awayTeam();
   homeTeam();
+  drawTime();
 }
 
 void keyPressed() {

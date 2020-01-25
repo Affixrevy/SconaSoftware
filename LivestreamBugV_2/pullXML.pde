@@ -9,63 +9,62 @@ void pullXML() {
     }
     println(e);
   }
+  
+  //Get Current Time and Call setTime Method
+  String currentTimeStr = scoreSheet.getChild("MAIN_TIME").getContent();
+  if (currentTimeStr != "") {
+     setTime(currentTimeStr); 
+  }
 
-  //Get Away Score
+
+  //Get Away Score - Check if XML value is null, if not parse the score to int so scoreboard can be set to the value
   String leftScoreStr = scoreSheet.getChild("GUEST_SCORE").getContent();
   if (leftScoreStr != str(scoreAway) && leftScoreStr != "") {
     newScoreAway = Integer.parseInt(leftScoreStr);
   }
 
-  //Get Home Score
+  //Get Home Score - Check if XML value is null, if not parse the score to int so scoreboard can be set to the value
   String rightScoreStr = scoreSheet.getChild("HOME_SCORE").getContent();
   if (rightScoreStr != str(scoreHome) && rightScoreStr != "") {
     newScoreHome = Integer.parseInt(leftScoreStr);
   }
 
-  int foulLTemp = Integer.parseInt(scoreSheet.getChild("HOME_FOULS").getContent());
-  /*if(foulL != foulLTemp) {
-   foulL = foulLTemp;
-   }*/
-
-
-  String foulRStr = scoreSheet.getChild("GUEST_FOULS").getContent();
-  if (foulRStr != "") {
-    int foulRTemp = Integer.parseInt(foulRStr);
+  //Get Home Fouls - Check if XML value is null, if not parse the score to int and call a method to drop down fouls tab
+  String foulHomeStr = scoreSheet.getChild("HOME_FOULS").getContent();
+  if (foulHomeStr != "") {
+    int foulsHome = Integer.parseInt(foulHomeStr);
   }
 
-  //Get Home Timeouts
-  String timeoutLeftHome = scoreSheet.getChild("HOME_TIMEOUTS_LEFT").getContent();
-  if (timeoutLeftHome != "") {
-    timeoutsLeftHome = Integer.parseInt(timeoutLeftHome);
+  //Get Away Fouls - Check if XML value is null, if not parse the score to int and call a method to drop down fouls tab
+  String foulAwayStr = scoreSheet.getChild("GUEST_FOULS").getContent();
+  if (foulAwayStr != "") {
+    int foulsAway = Integer.parseInt(foulAwayStr);
   }
 
-  //Get Away Timeouts
-  String timeoutLeftAway = scoreSheet.getChild("GUEST_TIMEOUTS_LEFT").getContent();
-  if (timeoutLeftAway != "") {
-    timeoutsLeftAway = Integer.parseInt(timeoutLeftAway);
+  //Get Home Timeouts - Check if XML value is null, if not parse the score to int so correct number of circles show
+  String timeoutLeftHomeStr = scoreSheet.getChild("HOME_TIMEOUTS_LEFT").getContent();
+  if (timeoutLeftHomeStr != "") {
+    timeoutsLeftHome = Integer.parseInt(timeoutLeftHomeStr);
   }
 
-  //Get Shot Clock
+  //Get Away Timeouts - Check if XML value is null, if not parse the score to int so correct number of circles show
+  String timeoutLeftAwayStr = scoreSheet.getChild("GUEST_TIMEOUTS_LEFT").getContent();
+  if (timeoutLeftAwayStr != "") {
+    timeoutsLeftAway = Integer.parseInt(timeoutLeftAwayStr);
+  }
+
+  //Get Shot Clock -  Check if XML value is null, if not parse the score to int so scoreboard can be set to the value
   String shotClockStr = scoreSheet.getChild("SHOT_CLOCK_SECONDS").getContent();
   if (shotClockStr != "") {
     shotClockSeconds = Integer.parseInt(shotClockStr);
   }
 
-  //Get Game Quarter
+  //Get Game Quarter - Check if XML value is null, if not parse the score to int and call function when the quarter changes
   String quarterStr = scoreSheet.getChild("GLOBAL_DATA_GAME_PERIOD").getContent();
-  if (quarterStr != "") {
+  if (quarterStr != "" && quarterStr != str(quarter)) {
     quarter = Integer.parseInt(quarterStr);
   }
 }
-
-
-//setTime(scoreSheet.getChild("MAIN_TIME").getContent());
-
-//quarter = Integer.parseInt(sheet[].getContent());
-//timeoutsL = Integer.parseInt(sheet[12].getContent());
-//timeoutsR = Integer.parseInt(sheet[22].getContent());
-
-
 
 boolean isOne(int xmlValue) {
   if (xmlValue == 1) {
