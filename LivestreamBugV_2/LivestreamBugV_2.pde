@@ -39,6 +39,7 @@ void setup() {
   din = createFont("DIN Alternate Bold.ttf", 100);
   sohoscore = createFont("soho/Soho Std Bold Condensed.otf", 100);
 
+  pullXML();
 
   bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
   pushMatrix();
