@@ -53,16 +53,24 @@ void pullXML() {
     timeoutsLeftAway = Integer.parseInt(timeoutLeftAwayStr);
   }
 
+
+
   //Get Shot Clock -  Check if XML value is null, if not parse the score to int so scoreboard can be set to the value
-  String shotClockStr = scoreSheet.getChild("SHOT_CLOCK_SECONDS").getContent();
-  if (shotClockStr != "") {
-    shotClockSeconds = Integer.parseInt(shotClockStr);
+  String shotClockTemp = scoreSheet.getChild("SHOT_CLOCK_SECONDS").getContent();
+  if (shotClockTemp != "") {
+    
+    if(shotClockTemp.charAt(0) != '7'){
+      shotClockSeconds = shotClockTemp;
+    } else {
+      shotClockSeconds = shotClockTemp.substring(1);
+    }
   }
 
   //Get Game Quarter - Check if XML value is null, if not parse the score to int and call function when the quarter changes
-  String quarterStr = scoreSheet.getChild("GLOBAL_DATA_GAME_PERIOD").getContent();
-  if (quarterStr != "" && quarterStr != str(quarter)) {
-    quarter = Integer.parseInt(quarterStr);
+  String quarterTemp = scoreSheet.getChild("GLOBAL_DATA_GAME_PERIOD").getContent();
+  if (!quarterTemp.equals(quarter)) {
+    quarter = quarterTemp;
+    bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
   }
 }
 
@@ -82,7 +90,7 @@ void setTime(String currentTime) {
     finalTenths = currentTime.substring(currentTime.indexOf(".")+1);
   } else {
     tenthsMode = false;
-    finalMinutes = "0"+currentTime.substring(0, currentTime.indexOf(":"));
+    finalMinutes = "0"+currentTime.substring(1, currentTime.indexOf(":"));
     finalSeconds = currentTime.substring(currentTime.indexOf(":")+1);
   }
 }

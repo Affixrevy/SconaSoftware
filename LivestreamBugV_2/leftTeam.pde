@@ -44,4 +44,21 @@ void awayTeam() {
   } else {
     text(scoreAway, 340+(leftPos), 984);
   }
+  timeOutAway();
+  
+}
+
+void timeOutAway() {
+  fill(200);
+  
+  if(timeoutsLeftAway < 1) {fill(120);} 
+  ellipse(650, 909, 13, 13);
+  if(timeoutsLeftAway < 2) {fill(120);} 
+  ellipse(610, 909, 13, 13);
+  if(timeoutsLeftAway < 3) {fill(120);} 
+  ellipse(570, 909, 13, 13);
+  if(timeoutsLeftAway < 4) {fill(120);} 
+  ellipse(530, 909, 13, 13);
+  if(timeoutsLeftAway < 5) {fill(120);}
+  ellipse(490, 909, 13, 13);
 }

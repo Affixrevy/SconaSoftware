@@ -30,8 +30,9 @@ int timeoutsLeftAway = 0;
 int timeoutsLeftHome = 0;
 int foulsAway = 0;
 int foulsHome = 0;
-int quarter = 1;
-int shotClockSeconds = 24;
+
+String quarter = "1";
+String shotClockSeconds = "24";
 
 void setup() {
   size(1920, 1080);
@@ -47,6 +48,8 @@ void setup() {
   bugHome = loadImage("Livestream_Bug_V2_DATA/Home/Home_Test.png");
   popMatrix();
   //mask();
+  
+  noStroke();
 }
 
 void draw() {
@@ -60,31 +63,4 @@ void draw() {
   awayTeam();
   homeTeam();
   drawTime();
-}
-
-void keyPressed() {
-  if (key == ' ') {
-    if (quarter < 4) {
-      quarter++;
-    } else {
-      quarter = 1;
-    }
-    bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
-  } else if (key == 'l') {
-    if (newScoreAway == scoreAway) {
-      newScoreAway = scoreAway + 1;
-      newTransitionAway = true;
-    }
-  } else if (key == 'k') {
-    if (newScoreHome == scoreHome) {
-      newScoreHome = scoreHome + 1;
-      newTransitionHome = true;
-    }
-  }
-
-  
-}
-
-void mousePressed() {
-  println(mouseX + " - " + mouseY);
 }
