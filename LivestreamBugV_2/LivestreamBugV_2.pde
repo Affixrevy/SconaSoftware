@@ -74,8 +74,9 @@ void draw() {
   background(0, 177, 64);
 
   dropFoulsAndBonusAway();
+  dropFoulsAndBonusHome();
 
-  image(bugCenter, 0, 0);
+    image(bugCenter, 0, 0);
   image(bugAway, 0, 0);
   image(bugHome, 0, 0);
 

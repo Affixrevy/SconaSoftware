@@ -31,16 +31,15 @@ void pullXML() {
 
   //Get Home Fouls - Check if XML value is null, if not parse the score to int and call a method to drop down fouls tab
   String foulHomeStr = scoreSheet.getChild("HOME_FOULS").getContent();
-  if (foulHomeStr != "") {
-    int foulsHome = Integer.parseInt(foulHomeStr);
+  if (foulHomeStr != "" && !foulHomeStr.equals(str(foulsHome))) {
+    foulsHome = Integer.parseInt(foulHomeStr);
+    dropFoulHome();
   }
 
   //Get Away Fouls - Check if XML value is null, if not parse the score to int and call a method to drop down fouls tab
   String foulAwayStr = scoreSheet.getChild("GUEST_FOULS").getContent();
   if (foulAwayStr != "" && !foulAwayStr.equals(str(foulsAway))) {
-    println(foulsAway);
-    int foulsAway = Integer.parseInt(foulAwayStr);
-    println(foulsAway);
+    foulsAway = Integer.parseInt(foulAwayStr);
     dropFoulAway();
   }
 

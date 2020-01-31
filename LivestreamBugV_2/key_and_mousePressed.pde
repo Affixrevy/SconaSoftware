@@ -10,10 +10,11 @@ void keyPressed() {
       newTransitionHome = true;
     }
   } else if (key == ' ') {
-    if (!messageDisplayingAway) {
-      dropFoulAway();
+    if (!messageDisplayingHome) {
+      println("hi");
+      dropFoulHome();
     } else {
-      retractFoulAway();
+      retractFoulHome();
     }
   }
 }
