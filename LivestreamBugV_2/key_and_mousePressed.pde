@@ -16,6 +16,12 @@ void keyPressed() {
       newScoreHome = scoreHome + 1;
       newTransitionHome = true;
     }
+  } else if (key == ' ') {
+    if(!messageDisplayingAway){
+       dropFoulAway();
+    } else {
+      retractFoulAway(); 
+    }
   }
 }
 
