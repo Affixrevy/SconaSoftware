@@ -1,12 +1,31 @@
-void dropFouls() {
+int foulDownTime = 0;
+void dropFoulsAndBonusAway() {
+  if (messageDropingAway) {
+    dropFoulAway();
+  } else if (messageRetractingAway) {
+    retractFoulAway();
+  }
 
+  if(messageDisplayingAway) {
+    foulDownTime++; 
+   
+  }
+
+  if (foulDownTime > 500) {
+    foulDownTime = 0;
+    retractFoulAway();
+  }
 
   //Set properties for drawing the rectangles
   rectMode(CORNER);
   fill(237, 28, 26);
+  textSize(24);
+  textAlign(CENTER);
 
   //Draw the message
-  rect(dropFoulAwayX, dropFoulAwayY, 533, 35);
+  rect(dropFoulAwayX, dropFoulAwayY, 533, 30);
+  fill(255);
+  text("FOULS: " + foulsAway, dropFoulAwayX + 250, dropFoulAwayY + 20);
 }
 
 //Normaly droping the foul message
@@ -17,7 +36,7 @@ void dropFoulAway() {
 
     messageDropingAway = true;
     //Set the target y value of the message
-    float targetY = 1027;
+    float targetY = 1000;
 
     //Calculate the difference between messages current position and target
     //position and multiply by a constant to change the position
@@ -25,7 +44,7 @@ void dropFoulAway() {
     dropFoulAwayY += dy * messageEasing;
 
     //Stop changing the position when message block is in place
-    if (dy < 0.1 && dy > -0.1) {
+    if (dy < 5) {
       messageDropingAway = false;
       messageDisplayingAway = true;
     }
@@ -34,6 +53,9 @@ void dropFoulAway() {
 
 //Retracting the foul messaging
 void retractFoulAway() {
+
+  messageRetractingAway = true;
+
   //Set the target y value of the message
   float targetY = 960;
 
@@ -44,7 +66,7 @@ void retractFoulAway() {
 
   //Stop changing the position when message block is in place
   if (dy < 0.1 && dy > -0.1) {
-
+    messageRetractingAway = false;
     messageDisplayingAway = false;
   }
 }
@@ -54,7 +76,7 @@ void dropFoulAwayBonus() {
   messageDropingAway = true;
 
   //Set the target y value of the message
-  float targetY = 1062;
+  float targetY = 1035;
 
   //Calculate the difference between messages current position and target
   //position and multiply by a constant to change the position
@@ -62,7 +84,7 @@ void dropFoulAwayBonus() {
   dropFoulAwayY += dy * messageEasing;
 
   //Stop changing the position when message block is in place
-  if (dy < 0.1 && dy > -0.1) {
+  if (dy < 5) {
     messageDropingAway = false;
     messageDisplayingAway = true;
   }

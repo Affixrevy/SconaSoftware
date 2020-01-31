@@ -1,12 +1,5 @@
 void keyPressed() {
-  if /*(key == ' ') {
-    if (quarter < 4) {
-      quarter++;
-    } else {
-      quarter = 1;
-    }
-    bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
-  } else if */(key == 'l') {
+  if (key == 'l') {
     if (newScoreAway == scoreAway) {
       newScoreAway = scoreAway + 1;
       newTransitionAway = true;
@@ -17,10 +10,10 @@ void keyPressed() {
       newTransitionHome = true;
     }
   } else if (key == ' ') {
-    if(!messageDisplayingAway){
-       dropFoulAway();
+    if (!messageDisplayingAway) {
+      dropFoulAway();
     } else {
-      retractFoulAway(); 
+      retractFoulAway();
     }
   }
 }

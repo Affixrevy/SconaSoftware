@@ -16,6 +16,8 @@ boolean messageDisplayingAway = false;
 boolean messageDisplayingHome = false;
 boolean messageDropingAway = false;
 boolean messageDropingHome = false;
+boolean messageRetractingAway = false;
+boolean messageRetractingHome = false;
 
 boolean bonusDownAway = false;
 boolean bonusDownHome = false;
@@ -29,7 +31,7 @@ float yLeftOld = 1034;
 float yRightNew = 934;
 float yRightOld = 1034;
 float scoreEasing = 0.2;
-float messageEasing = 0.03;
+float messageEasing = 0.2;
 
 int scoreAway = 0;
 int scoreHome = 0;
@@ -42,6 +44,8 @@ int foulsHome = 0;
 
 int dropFoulAwayX = 1056;
 int dropFoulAwayY = 960;
+int dropFoulHomeX = 340;
+int dropFoulHomeY = 960;
 
 String quarter = "1";
 String shotClockSeconds = "24";
@@ -69,7 +73,7 @@ void draw() {
 
   background(0, 177, 64);
 
-  dropFouls();
+  dropFoulsAndBonusAway();
 
   image(bugCenter, 0, 0);
   image(bugAway, 0, 0);

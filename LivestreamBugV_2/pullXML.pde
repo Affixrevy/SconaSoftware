@@ -37,8 +37,11 @@ void pullXML() {
 
   //Get Away Fouls - Check if XML value is null, if not parse the score to int and call a method to drop down fouls tab
   String foulAwayStr = scoreSheet.getChild("GUEST_FOULS").getContent();
-  if (foulAwayStr != "") {
+  if (foulAwayStr != "" && !foulAwayStr.equals(str(foulsAway))) {
+    println(foulsAway);
     int foulsAway = Integer.parseInt(foulAwayStr);
+    println(foulsAway);
+    dropFoulAway();
   }
 
   //Get Home Timeouts - Check if XML value is null, if not parse the score to int so correct number of circles show
