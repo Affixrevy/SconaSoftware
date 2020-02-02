@@ -24,8 +24,6 @@ boolean messageRetractingHome = false;
 boolean bonusDownAway = false;
 boolean bonusDownHome = false;
 
-boolean changesMade = false;
-
 String finalTenths = "";
 String finalSeconds = "";
 String finalMinutes = "";
@@ -75,18 +73,16 @@ void setup() {
 void draw() {
   pullXML();
 
-  if (changesMade) {
-    background(0, 177, 64);
+  background(0, 177, 64);
 
-    dropFoulsAndBonusAway();
-    dropFoulsAndBonusHome();
+  dropFoulsAndBonusAway();
+  dropFoulsAndBonusHome();
 
-    image(bugAway, 0, 0);
-    image(bugHome, 0, 0);
-    image(bugCenter, 0, 0);
+  image(bugAway, 0, 0);
+  image(bugHome, 0, 0);
+  image(bugCenter, 0, 0);
 
-    awayTeam();
-    homeTeam();
-    drawTime();
-  }
+  awayTeam();
+  homeTeam();
+  drawTime();
 }
