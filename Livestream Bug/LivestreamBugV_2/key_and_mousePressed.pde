@@ -10,8 +10,13 @@ void keyPressed() {
       newTransitionHome = true;
     }
   } else if (key == ' ') {
+    if (!messageDisplayingAway) {
+      dropFoulAway();
+    } else {
+      retractFoulAway();
+    }
+    
     if (!messageDisplayingHome) {
-      println("hi");
       dropFoulHome();
     } else {
       retractFoulHome();

@@ -19,14 +19,16 @@ void pullXML() {
 
   //Get Away Score - Check if XML value is null, if not parse the score to int so scoreboard can be set to the value
   String leftScoreStr = scoreSheet.getChild("GUEST_SCORE").getContent();
-  if (leftScoreStr != str(scoreAway) && leftScoreStr != "") {
+  if (!leftScoreStr.equals(str(scoreAway)) && leftScoreStr != "") {
     newScoreAway = Integer.parseInt(leftScoreStr);
+    changesMade = true;
   }
 
   //Get Home Score - Check if XML value is null, if not parse the score to int so scoreboard can be set to the value
   String rightScoreStr = scoreSheet.getChild("HOME_SCORE").getContent();
-  if (rightScoreStr != str(scoreHome) && rightScoreStr != "") {
+  if (!rightScoreStr.equals(str(scoreHome)) && rightScoreStr != "") {
     newScoreHome = Integer.parseInt(rightScoreStr);
+    changesMade = true;
   }
 
   //Get Home Fouls - Check if XML value is null, if not parse the score to int and call a method to drop down fouls tab
@@ -34,6 +36,7 @@ void pullXML() {
   if (foulHomeStr != "" && !foulHomeStr.equals(str(foulsHome))) {
     foulsHome = Integer.parseInt(foulHomeStr);
     dropFoulHome();
+    changesMade = true;
   }
 
   //Get Away Fouls - Check if XML value is null, if not parse the score to int and call a method to drop down fouls tab
@@ -41,18 +44,21 @@ void pullXML() {
   if (foulAwayStr != "" && !foulAwayStr.equals(str(foulsAway))) {
     foulsAway = Integer.parseInt(foulAwayStr);
     dropFoulAway();
+    changesMade = true;
   }
 
   //Get Home Timeouts - Check if XML value is null, if not parse the score to int so correct number of circles show
   String timeoutLeftHomeStr = scoreSheet.getChild("HOME_TIMEOUTS_LEFT").getContent();
   if (timeoutLeftHomeStr != "") {
     timeoutsLeftHome = Integer.parseInt(timeoutLeftHomeStr);
+    changesMade = true;
   }
 
   //Get Away Timeouts - Check if XML value is null, if not parse the score to int so correct number of circles show
   String timeoutLeftAwayStr = scoreSheet.getChild("GUEST_TIMEOUTS_LEFT").getContent();
   if (timeoutLeftAwayStr != "") {
     timeoutsLeftAway = Integer.parseInt(timeoutLeftAwayStr);
+    changesMade = true;
   }
 
 
@@ -66,6 +72,7 @@ void pullXML() {
     } else {
       shotClockSeconds = shotClockTemp.substring(1);
     }
+    changesMade = true;
   }
 
   //Get Game Quarter - Check if XML value is null, if not parse the score to int and call function when the quarter changes
@@ -73,6 +80,7 @@ void pullXML() {
   if (!quarterTemp.equals(quarter)) {
     quarter = quarterTemp;
     bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
+    changesMade = true;
   }
 }
 

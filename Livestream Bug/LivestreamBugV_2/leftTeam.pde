@@ -1,19 +1,30 @@
 void awayTeam() {
+  scoreAway();
+  timeOutAway();
+  foulsAway();
   
-  textAlign(CENTER);
-  textFont(din);
-  textSize(100);
-  fill(255);
+  image(scoreAwayNumber, 0, 0);
+}
+
+void scoreAway() {
   
-  int leftPos = 470;
+  scoreAwayNumber.beginDraw();
+  scoreAwayNumber.background(bugAway.get(530, 910));
+  scoreAwayNumber.textAlign(CENTER);
+  scoreAwayNumber.textFont(din);
+  scoreAwayNumber.textSize(100);
+  scoreAwayNumber.fill(255);
+  scoreAwayNumber.endDraw();
 
   if (scoreAway < newScoreAway) {
     if (newTransitionAway) {
       newTransitionAway = false;
       yLeftNew = 934;
     }
-    text(newScoreAway, 340+(leftPos), yLeftNew);
-    text(scoreAway, 340+(leftPos), yLeftOld);
+    scoreAwayNumber.beginDraw();
+    scoreAwayNumber.text(newScoreAway, 340+470, yLeftNew);
+    scoreAwayNumber.text(scoreAway, 340+470, yLeftOld);
+    scoreAwayNumber.endDraw();
     float targetY = 984;
     float dyR = targetY - yLeftNew;
     yLeftNew += dyR * scoreEasing;
@@ -29,8 +40,10 @@ void awayTeam() {
       newTransitionAway = false;
       yLeftNew = 216;
     }
-    text(newScoreAway, 340+(leftPos), yLeftNew);
-    text(scoreAway, 340+(leftPos), yLeftOld);
+    scoreAwayNumber.beginDraw();
+    scoreAwayNumber.text(newScoreAway, 340+470, yLeftNew);
+    scoreAwayNumber.text(scoreAway, 340+470, yLeftOld);
+    scoreAwayNumber.endDraw();
     float targetY = 984;
     float dyL = targetY - yLeftNew;
     yLeftNew += dyL * scoreEasing;
@@ -42,23 +55,41 @@ void awayTeam() {
       //bugServer.write("set\n" + "score\n" + "left\n" + leftScore + "\n");
     }
   } else {
-    text(scoreAway, 340+(leftPos), 984);
+    scoreAwayNumber.beginDraw();
+    scoreAwayNumber.text(scoreAway, 340+470, 984);
+    scoreAwayNumber.endDraw();
   }
-  timeOutAway();
-  
+  scoreAwayNumber.mask(scoreMask);
 }
+
+void foulsAway() {
+  fill(255);
+  textSize(20);
+  text(foulsHome, 675, 916);
+}
+
 
 void timeOutAway() {
   fill(200);
-  
-  if(timeoutsLeftAway < 1) {fill(120);} 
-  ellipse(650, 909, 13, 13);
-  if(timeoutsLeftAway < 2) {fill(120);} 
-  ellipse(610, 909, 13, 13);
-  if(timeoutsLeftAway < 3) {fill(120);} 
-  ellipse(570, 909, 13, 13);
-  if(timeoutsLeftAway < 4) {fill(120);} 
-  ellipse(530, 909, 13, 13);
-  if(timeoutsLeftAway < 5) {fill(120);}
-  ellipse(490, 909, 13, 13);
+
+  if (timeoutsLeftAway < 1) {
+    fill(120);
+  } 
+  ellipse(748, 929, 10, 10);
+  if (timeoutsLeftAway < 2) {
+    fill(120);
+  } 
+  ellipse(748, 944, 10, 10);
+  if (timeoutsLeftAway < 3) {
+    fill(120);
+  } 
+  ellipse(748, 959, 10, 10);
+  if (timeoutsLeftAway < 4) {
+    fill(120);
+  } 
+  ellipse(748, 974, 10, 10);
+  if (timeoutsLeftAway < 5) {
+    fill(120);
+  }
+  ellipse(748, 989, 10, 10);
 }

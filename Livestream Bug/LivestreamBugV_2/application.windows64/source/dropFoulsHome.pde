@@ -48,6 +48,8 @@ void dropFoulHome() {
       messageDropingHome = false;
       messageDisplayingHome = true;
     }
+         changesMade = true;
+
   }
 }
 
@@ -69,6 +71,8 @@ void retractFoulHome() {
     messageRetractingHome = false;
     messageDisplayingHome = false;
   }
+       changesMade = true;
+
 }
 
 //Drop the foul messaging when bonus is down

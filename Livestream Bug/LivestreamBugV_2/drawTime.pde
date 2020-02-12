@@ -4,7 +4,7 @@ void drawTime() {
   textFont(din);
   textSize(82);
   textAlign(CENTER);
-  fill(255);
+  fill(50);
   
   //Variables for the position of the main time
   int minuiteXSpacing = 48;
@@ -39,8 +39,11 @@ void drawTime() {
   
   //Set font, colour, and alignment varialbes for Shot clock time
   textSize(40);
-  fill(255, 255, 0);
-  
+  if(Integer.parseInt(shotClockSeconds) < 10){
+    fill(255, 255, 0);
+  } else {
+    fill(200); 
+  }
   //Draw shot clock time
   text(shotClockSeconds, shotclockX, shotclockY);
   

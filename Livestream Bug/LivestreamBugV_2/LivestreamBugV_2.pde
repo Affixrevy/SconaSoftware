@@ -1,8 +1,11 @@
-
-
 PImage bugCenter;
 PImage bugAway;
 PImage bugHome;
+
+PImage scoreMask;
+PGraphics scoreHomeNumber;
+PGraphics scoreAwayNumber;
+
 XML scoreSheet;
 
 PFont din;
@@ -14,17 +17,17 @@ boolean bonusAway = false;
 boolean bonusHome = false;
 boolean tenthsMode;
 
-boolean messageDisplayingAway = false;
 boolean messageDisplayingHome = false;
-boolean messageDropingAway = false;
+boolean messageDisplayingAway = false;
 boolean messageDropingHome = false;
-boolean messageRetractingAway = false;
+boolean messageDropingAway = false;
 boolean messageRetractingHome = false;
+boolean messageRetractingAway = false;
 
 boolean bonusDownAway = false;
 boolean bonusDownHome = false;
 
-boolean changesMade = false;
+boolean changesMade = true;
 
 String finalTenths = "";
 String finalSeconds = "";
@@ -46,10 +49,10 @@ int timeoutsLeftHome = 0;
 int foulsAway = 0;
 int foulsHome = 0;
 
-int dropFoulAwayX = 1056;
-int dropFoulAwayY = 960;
-int dropFoulHomeX = 340;
+int dropFoulHomeX = 1057;
 int dropFoulHomeY = 960;
+int dropFoulAwayrX = 760;
+int dropFoulAwayY = 960;
 
 String quarter = "1";
 String shotClockSeconds = "24";
@@ -63,30 +66,35 @@ void setup() {
   pullXML();
 
   bugCenter = loadImage("Livestream_Bug_V2_DATA/center/Quarter"+quarter+".png");
-  pushMatrix();
-  bugAway = loadImage("Livestream_Bug_V2_DATA/Away/Away_Test.png");
-  bugHome = loadImage("Livestream_Bug_V2_DATA/Home/Home_Test.png");
-  popMatrix();
-  //mask();
+  bugAway = loadImage("Livestream_Bug_V2_DATA/Away/Away_Test_2.png");
+  bugHome = loadImage("Livestream_Bug_V2_DATA/Home/Home_Test_2.png");
+
+  scoreMask = loadImage("Livestream_Bug_V2_DATA/MASK.png");
+  scoreHomeNumber = createGraphics(1920, 1080);
+  scoreAwayNumber = createGraphics(1920, 1080);
 
   noStroke();
+
+  //teamAway = new Movie(this, "Livestream_Bug_V2_DATA/Comp 1.mov");
 }
 
 void draw() {
   pullXML();
 
-  if (changesMade) {
-    background(0, 177, 64);
+  //if (changesMade) {
+  background(0, 177, 64);
 
-    dropFoulsAndBonusAway();
-    dropFoulsAndBonusHome();
+  dropFoulsAndBonusAway();
+  dropFoulsAndBonusHome();
 
-    image(bugAway, 0, 0);
-    image(bugHome, 0, 0);
-    image(bugCenter, 0, 0);
+  image(bugAway, 0, 0);
+  image(bugHome, 0, 0);
+  image(bugCenter, 0, 0);
 
-    awayTeam();
-    homeTeam();
-    drawTime();
-  }
+  awayTeam();
+  homeTeam();
+  drawTime();
+  changesMade = false;
+
+  //}
 }

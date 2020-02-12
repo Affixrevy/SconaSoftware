@@ -6,9 +6,8 @@ void dropFoulsAndBonusAway() {
     retractFoulAway();
   }
 
-  if(messageDisplayingAway) {
-    foulDownTimeAway++; 
-   
+  if (messageDisplayingAway) {
+    foulDownTimeAway++;
   }
 
   if (foulDownTimeAway > 400) {
@@ -48,6 +47,7 @@ void dropFoulAway() {
       messageDropingAway = false;
       messageDisplayingAway = true;
     }
+    changesMade = true;
   }
 }
 
@@ -69,6 +69,7 @@ void retractFoulAway() {
     messageRetractingAway = false;
     messageDisplayingAway = false;
   }
+  changesMade = true;
 }
 
 //Drop the foul messaging when bonus is down
