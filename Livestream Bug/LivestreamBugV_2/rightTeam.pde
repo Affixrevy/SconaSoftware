@@ -59,7 +59,7 @@ void scoreHome() {
     scoreHomeNumber.text(scoreHome, 340+(770), 984);
     scoreHomeNumber.endDraw();
   }
-  scoreHomeNumber.mask(scoreMask);
+  scoreHomeNumber.mask(scoreMaskHome);
 }
 
 void foulsHome() {

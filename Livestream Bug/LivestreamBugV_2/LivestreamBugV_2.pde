@@ -2,7 +2,8 @@ PImage bugCenter;
 PImage bugAway;
 PImage bugHome;
 
-PImage scoreMask;
+PImage scoreMaskHome;
+PImage scoreMaskAway;
 PGraphics scoreHomeNumber;
 PGraphics scoreAwayNumber;
 
@@ -69,19 +70,18 @@ void setup() {
   bugAway = loadImage("Livestream_Bug_V2_DATA/Away/Away_Test_2.png");
   bugHome = loadImage("Livestream_Bug_V2_DATA/Home/Home_Test_2.png");
 
-  scoreMask = loadImage("Livestream_Bug_V2_DATA/MASK.png");
+  scoreMaskHome = loadImage("Livestream_Bug_V2_DATA/Mask_Home.png");
+  scoreMaskAway = loadImage("Livestream_Bug_V2_DATA/Mask_Away.png");
   scoreHomeNumber = createGraphics(1920, 1080);
   scoreAwayNumber = createGraphics(1920, 1080);
 
   noStroke();
 
-  //teamAway = new Movie(this, "Livestream_Bug_V2_DATA/Comp 1.mov");
 }
 
 void draw() {
   pullXML();
 
-  //if (changesMade) {
   background(0, 177, 64);
 
   dropFoulsAndBonusAway();
@@ -96,5 +96,4 @@ void draw() {
   drawTime();
   changesMade = false;
 
-  //}
 }

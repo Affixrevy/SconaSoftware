@@ -7,7 +7,7 @@ void dropFoulsAndBonusHome() {
 
   //Set properties for drawing the rectangles
   rectMode(CORNER);
-  fill(237, 28, 26);
+  fill(bugHome.get(1441, 920));
   textSize(24);
   textAlign(CENTER);
 
@@ -20,7 +20,6 @@ void dropFoulsAndBonusHome() {
 //Normaly droping the foul message
 void dropFoulHome() {
   
-
     messageDropingHome = true;
     //Set the target y value of the message
     float targetY = 1000;

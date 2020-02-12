@@ -59,7 +59,7 @@ void scoreAway() {
     scoreAwayNumber.text(scoreAway, 340+470, 984);
     scoreAwayNumber.endDraw();
   }
-  scoreAwayNumber.mask(scoreMask);
+  scoreAwayNumber.mask(scoreMaskAway);
 }
 
 void foulsAway() {

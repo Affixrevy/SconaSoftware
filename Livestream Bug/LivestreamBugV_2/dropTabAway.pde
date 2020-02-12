@@ -8,7 +8,7 @@ void dropFoulsAndBonusAway() {
 
   //Set properties for drawing the rectangles
   rectMode(CORNER);
-  fill(41, 78, 155);
+  fill(bugAway.get(530, 910));
   textSize(24);
   textAlign(CENTER);
 
