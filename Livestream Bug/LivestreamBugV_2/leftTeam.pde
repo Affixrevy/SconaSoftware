@@ -1,7 +1,7 @@
 void awayTeam() {
   scoreAway();
   timeOutAway();
-  foulsAway();
+  //foulsAway();
   
   image(scoreAwayNumber, 0, 0);
 }
@@ -27,8 +27,8 @@ void scoreAway() {
     scoreAwayNumber.endDraw();
     float targetY = 984;
     float dyR = targetY - yLeftNew;
-    yLeftNew += dyR * scoreEasing;
-    yLeftOld += dyR * scoreEasing;
+    yLeftNew += dyR * scoreChange;
+    yLeftOld += dyR * scoreChange;
     if (dyR < 0.1 && dyR > -0.1) {
       scoreAway = newScoreAway;
       yLeftNew = 934;
@@ -46,8 +46,8 @@ void scoreAway() {
     scoreAwayNumber.endDraw();
     float targetY = 984;
     float dyL = targetY - yLeftNew;
-    yLeftNew += dyL * scoreEasing;
-    yLeftOld += dyL * scoreEasing;
+    yLeftNew += dyL * scoreChange;
+    yLeftOld += dyL * scoreChange;
     if (dyL < 0.1 && dyL > -0.1) {
       scoreAway = newScoreAway;
       yLeftNew = 934;

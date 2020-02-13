@@ -1,17 +1,22 @@
+//Initiate three main parts of the scoreboard
 PImage bugCenter;
 PImage bugAway;
 PImage bugHome;
 
+//Initiate variables for properly masking the score
 PImage scoreMaskHome;
 PImage scoreMaskAway;
 PGraphics scoreHomeNumber;
 PGraphics scoreAwayNumber;
 
+//Initiate variable for the Nevco XML sheet
 XML scoreSheet;
 
+//Initiate variables for the font
 PFont din;
 PFont sohoscore;
 
+//Initiate variables for drop down bonus
 boolean newTransitionHome = false;
 boolean newTransitionAway = false;
 boolean bonusAway = false;
@@ -38,7 +43,7 @@ float yLeftNew = 934;
 float yLeftOld = 1034;
 float yRightNew = 934;
 float yRightOld = 1034;
-float scoreEasing = 0.2;
+float scoreChange = 0.25;
 float messageEasing = 0.2;
 
 int scoreAway = 0;

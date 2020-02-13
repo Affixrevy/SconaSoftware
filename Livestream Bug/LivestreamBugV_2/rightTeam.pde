@@ -27,8 +27,8 @@ void scoreHome() {
     scoreHomeNumber.endDraw();
     float targetY = 984;
     float dyL = targetY - yRightNew;
-    yRightNew += dyL * scoreEasing;
-    yRightOld += dyL * scoreEasing;
+    yRightNew += dyL * scoreChange;
+    yRightOld += dyL * scoreChange;
     if (dyL < 0.1 && dyL > -0.1) {
       scoreHome = newScoreHome;
       yRightNew = 934;
@@ -46,8 +46,8 @@ void scoreHome() {
     scoreHomeNumber.endDraw();
     float targetY = 984;
     float dyL = targetY - yRightNew;
-    yRightNew += dyL * scoreEasing;
-    yRightOld += dyL * scoreEasing;
+    yRightNew += dyL * scoreChange;
+    yRightOld += dyL * scoreChange;
     if (dyL < 0.1 && dyL > -0.1) {
       scoreHome = newScoreHome;
       yRightNew = 934;
